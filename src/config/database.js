@@ -9,10 +9,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  max: parseInt(process.env.DB_MAX_CONNECTIONS) || 20,
-  idleTimeoutMillis: parseInt(process.env.DB_IDLE_TIMEOUT) || 30000,
-  connectionTimeoutMillis: parseInt(process.env.DB_CONNECTION_TIMEOUT) || 2000,
+  password: process.env.DB_PASSWORD
 });
 
 // Test connection

@@ -2,6 +2,7 @@
   "name": "blogapi",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
   "type": "module",
   "main": "server.js",
   "scripts": {

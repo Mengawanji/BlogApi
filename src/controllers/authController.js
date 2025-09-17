@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 
 export const register = async (req, res, next) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password } = req.body || {}; 
     
     const existingUser = await User.findByEmail(email);
     if (existingUser) {
@@ -34,7 +34,7 @@ export const register = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req.body || {}; 
     
     const user = await User.findByEmail(email);
     if (!user) {

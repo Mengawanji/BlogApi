@@ -37,7 +37,7 @@ git clone git@github.com:Mengawanji/BlogApi.git
 
 The app will be running at:
 
-URL https://blogapi-4dq5.onrender.com/
+URL https://blogapi-lede.onrender.com/
 
 
 API ENDPOINTS

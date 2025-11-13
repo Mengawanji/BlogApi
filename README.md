@@ -66,7 +66,7 @@ A secure and scalable **RESTful API** for a blogging platform built with Node.js
 
 ##  Installation & Setup
 
-### 2 Clone the Repository
+### 1 Clone the Repository
 
 ```bash
 git clone git@github.com:Mengawanji/BlogApi.git

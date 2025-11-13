@@ -64,10 +64,67 @@ A secure and scalable **RESTful API** for a blogging platform built with Node.js
 
 ---
 
+##  Installation & Setup
 
-## Installation & Setup
+### 2 Clone the Repository
 
-### 1 Clone the Repository
 ```bash
 git clone git@github.com:Mengawanji/BlogApi.git
 cd BlogApi
+```
+
+### 2 Install Dependencies
+
+```bash
+npm install
+```
+
+### 3 Create Environment Variables
+
+Create a `.env` file in the project root and configure the following:
+
+```env
+PORT=3000
+DATABASE_URL=your_postgres_connection_url
+JWT_SECRET=your_secret_key
+```
+
+### 4 Run the Development Server
+
+```bash
+npm run dev
+```
+
+---
+
+## API Endpoints
+
+### User Routes
+
+| Method | Endpoint                | Description                     |
+| ------ | ----------------------- | ------------------------------- |
+| POST   | `/auth/register`        | Register a new user             |
+| POST   | `/auth/login`           | Authenticate user and get token |
+| GET    | `/auth/me`              | Get the user                    |
+| GET    | `/auth/users`           | Get all users *(Admin only)*    |
+| POST   | `/users/profile_upload` | Upload user profile             |
+
+### Post Routes
+
+| Method | Endpoint         | Description                         |
+| ------ | ---------------- | ----------------------------------- |
+| POST   | `/posts`         | Create a new post *(Authenticated)* |
+| GET    | `/posts`         | Fetch all posts                     |
+| GET    | `/posts/:id`     | Get a specific post                 |
+| PUT    | `/posts/:id`     | Update a post *(Author only)*       |
+| DELETE | `/posts/:id`     | Delete a post *(Author only)*       |
+
+### Comment Routes
+
+| Method | Endpoint                       | Description                               |
+| ------ | ------------------------------ | ----------------------------------------- |
+| POST   | `/comments/posts/:id/comments` | Add a comment to a post *(Authenticated)* |
+| GET    | `/comments/posts/:id/comments` | Get comments for a post                   |
+| DELETE | `/comments/:id`                | Delete a comment *(Author/Admin)*         |
+
+---

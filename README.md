@@ -42,7 +42,7 @@ A secure and scalable **RESTful API** for a blogging platform built with Node.js
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-------------|
@@ -59,7 +59,7 @@ A secure and scalable **RESTful API** for a blogging platform built with Node.js
 ## Live API
 
 **Base URL:**  
-👉 [https://blogapi-lede.onrender.com/](https://blogapi-lede.onrender.com/)
+[https://blogapi-lede.onrender.com/](https://blogapi-lede.onrender.com/)
 
 
 ---

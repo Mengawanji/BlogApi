@@ -11,21 +11,12 @@ import commentRoutes from './routes/comments.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 import { createTablesAndIndexes } from './config/init_db.js';
 import { testConnection } from './config/database.js';
+import logger from "./config/logger.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-
-(async () => {
-  try {
-    await testConnection();
-    await createTablesAndIndexes();
-    console.log('Database initialized successfully');
-  } catch (err) {
-    console.error('Database initialization failed:', err.message);
-  }
-})();
 
 app.use(cors());
 app.use(express.json());
@@ -45,5 +36,16 @@ app.get('/health', (req, res) => {
 
 app.use(notFound);
 app.use(errorHandler);
+
+export const initializeApp = async () => {
+  try {
+    await testConnection();
+    await createTablesAndIndexes();
+    logger.info("Database initialized successfully");
+  } catch (err) {
+    logger.fatal({ err }, "Database initialization failed");
+    process.exit(1); // No point starting the server with no DB
+  }
+};
 
 export default app;

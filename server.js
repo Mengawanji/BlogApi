@@ -1,12 +1,11 @@
-import app from './src/app.js';
+import app, { initializeApp } from './src/app.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
 
 const PORT = process.env.PORT || 3000;
+await initializeApp();
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(` API health check: http://localhost:${PORT}/health`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  logger.info({ port: PORT }, `Server running`);
 });
